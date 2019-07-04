@@ -1,5 +1,7 @@
 # VS Code Remote DevelopmentでRedmine(Railsアプリケーション)のDocker開発環境にVSCodeから接続し、デバッグする
 
+(自分用)
+
 # 利用手順
 
 * このリポジトリを手元にClone
