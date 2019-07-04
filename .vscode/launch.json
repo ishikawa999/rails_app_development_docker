@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Listen for rdebug-ide",
+      "type": "Ruby",
+      "request": "attach",
+      "cwd": "${workspaceRoot}",
+      "remoteHost": "localhost",
+      "remotePort": "1233",
+      "remoteWorkspaceRoot": "/var/lib/app",
+      "useBundler": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+    "name": "RailsApp Docker",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/var/lib/app",
+    "shutdownAction": "stopCompose",
+    "extensions": [
+        "rebornix.ruby",
+        "eamodio.gitlens"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    }
+}

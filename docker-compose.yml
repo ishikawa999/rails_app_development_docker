@@ -1,0 +1,42 @@
+version: '3'
+services:
+
+  # PostgreSQL
+  postgresdb:
+    image: postgres:9.5
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: rails_app_user
+
+  # MySQL
+  mysqldb:
+    image: mysql:5.7
+    restart: always
+    environment:
+  #   TZ: Asia/Tokyo
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password
+      MYSQL_USER: rails_app_user
+
+  app:
+    build: .
+    environment:
+      RAILS_DB_ADAPTER: postgresql
+      RAILS_DB_HOST: postgresdb
+      RAILS_DB: app
+      RAILS_DB_USERNAME: rails_app_user
+      RAILS_DB_PASSWORD: password
+      RAILS_DB_ENCODING: utf8
+      RAILS_ENV: development
+
+    ports:
+      - "3000:3000"
+      - "1233:1233"
+      - "26162:26162"
+      # - "25:25"
+    depends_on:
+      - postgresdb
+      - mysqldb
+    volumes:
+      - ./app:/var/lib/app

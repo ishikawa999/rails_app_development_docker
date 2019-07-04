@@ -1,0 +1,5 @@
+app/*
+# custom_shell.sh
+
+# git update-index --skip-worktree app
+# git update-index --skip-worktree custom_shell.sh
