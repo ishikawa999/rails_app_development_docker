@@ -6,7 +6,8 @@
     "shutdownAction": "stopCompose",
     "extensions": [
         "rebornix.ruby",
-        "eamodio.gitlens"
+        "eamodio.gitlens",
+        "wakatime.vscode-wakatime"
     ],
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
