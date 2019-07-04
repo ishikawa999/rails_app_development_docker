@@ -11,7 +11,7 @@ $ git clone https://github.com/ishikawa999/redmine-docker-vscode.git
 $ cd /your/path/redmine-docker-vscode
 ```
 
-* app以下にRedmineのコードを入れる
+* app以下に動かしたいRailsアプリケーションのコードを入れる(app/app, app/configになるように、直下に)
 
 ```bash
 $ git clone https://github.com/redmine/redmine.git app
