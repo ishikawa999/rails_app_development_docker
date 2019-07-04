@@ -27,7 +27,7 @@ RUN set -eux; \
 ENV DEBIAN_FRONTEND dialog
 
 WORKDIR $APP_HOME
-ADD ./app $APP_HOME
+ADD ./app/. $APP_HOME
 
 COPY ./start.sh ./entrypoint.sh ./setup.sh ./custom_shell.sh /
 
