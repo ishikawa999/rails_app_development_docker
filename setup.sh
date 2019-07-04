@@ -31,6 +31,9 @@ wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 chmod a+x /var/lib/.git-prompt.sh
 chmod a+x /var/lib/.git-completion.bash
 
+source /var/lib/.git-completion.bash
+source /var/lib/.git-prompt.sh
+
 { \
   echo "alias ls='ls -G'"; \
   echo "source /var/lib/.git-completion.bash"; \
@@ -45,4 +48,5 @@ chmod a+x /var/lib/.git-completion.bash
 } | tee /root/.bashrc
 
 # git 文字化け対処
-git config --global core.pager "less -cm"
+cd /var/lib/app
+git config --global core.pager "LESSCHARSET=utf-8 less"
