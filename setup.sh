@@ -31,9 +31,6 @@ wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 chmod a+x /var/lib/.git-prompt.sh
 chmod a+x /var/lib/.git-completion.bash
 
-source /var/lib/.git-completion.bash
-source /var/lib/.git-prompt.sh
-
 { \
   echo "alias ls='ls -G'"; \
   echo "source /var/lib/.git-completion.bash"; \
@@ -44,7 +41,7 @@ source /var/lib/.git-prompt.sh
   echo "export GIT_PS1_SHOWDIRTYSTATE=1"; \
   echo "export GIT_PS1_SHOWCOLORHINTS=true"; \
   echo "# bash-prompt"; \
-  echo "export PS1='\[\033[0;33m\]\w \[\033[1;32m\]$(__git_ps1)\[\033[0m\]\n \[\033[1;32m\]$ \[\033[0m\]'"; \
+  echo "export PS1='\[\033[0;33m\]\w \[\033[1;32m\]\$(__git_ps1)\[\033[0m\]\n \[\033[1;32m\]$ \[\033[0m\]'"; \
 } | tee /root/.bashrc
 
 # git 文字化け対処
