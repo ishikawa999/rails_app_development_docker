@@ -21,6 +21,8 @@ RUN set -eux; \
     vim \
     less \
     default-libmysqlclient-dev \
+    locales \
+    locales-all \
     ; \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*;

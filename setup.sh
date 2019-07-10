@@ -42,8 +42,13 @@ chmod a+x /var/lib/.git-completion.bash
   echo "export GIT_PS1_SHOWCOLORHINTS=true"; \
   echo "# bash-prompt"; \
   echo "export PS1='\[\033[0;33m\]\w \[\033[1;32m\]\$(__git_ps1)\[\033[0m\]\n \[\033[1;32m\]$ \[\033[0m\]'"; \
+  echo "export LANG=ja_JP.UTF-8"; \
 } | tee /root/.bashrc
 
 # git 文字化け対処
 cd /var/lib/app
 git config --global core.pager "LESSCHARSET=utf-8 less"
+
+echo 'ja_JP.UTF-8 UTF-8' >> /etc/locale.gen
+locale-gen
+update-locale
