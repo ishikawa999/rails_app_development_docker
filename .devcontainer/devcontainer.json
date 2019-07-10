@@ -4,6 +4,7 @@
     "service": "app",
     "workspaceFolder": "/var/lib/app",
     "shutdownAction": "stopCompose",
+    "appPort": 3000,
     "extensions": [
         "rebornix.ruby",
         "eamodio.gitlens",

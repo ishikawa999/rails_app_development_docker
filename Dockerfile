@@ -38,7 +38,7 @@ RUN chmod +x /start.sh && \
   bundle update && \
   /setup.sh
 
-EXPOSE 3000 1233 26162
+EXPOSE 3000
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/start.sh"]
