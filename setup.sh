@@ -52,3 +52,8 @@ git config --global core.pager "LESSCHARSET=utf-8 less"
 echo 'ja_JP.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 update-locale
+
+# vscode debug gem install
+
+ gem install ruby-debug-ide
+ gem install debase
