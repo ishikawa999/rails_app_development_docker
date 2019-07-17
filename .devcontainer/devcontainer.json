@@ -8,7 +8,8 @@
     "extensions": [
         "rebornix.ruby",
         "eamodio.gitlens",
-        "wakatime.vscode-wakatime"
+        "wakatime.vscode-wakatime",
+        "kaiwood.endwise"
     ],
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
