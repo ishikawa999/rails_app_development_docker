@@ -7,8 +7,8 @@
 * このリポジトリを手元にClone
 
 ```bash
-$ git clone https://github.com/ishikawa999/redmine-docker-vscode.git
-$ cd /your/path/redmine-docker-vscode
+$ git clone https://github.com/ishikawa999/rails_app_development_docker.git
+$ cd /your/path/rails_app_development_docker
 ```
 
 * app以下に動かしたいRailsアプリケーションのコードを入れる(app/app, app/configになるように、直下に)
