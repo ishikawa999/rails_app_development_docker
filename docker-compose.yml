@@ -14,13 +14,16 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-  #   TZ: Asia/Tokyo
       MYSQL_ROOT_PASSWORD: password
       MYSQL_PASSWORD: password
       MYSQL_USER: rails_app_user
 
   app:
-    build: .
+    build:
+      context: .
+      args:
+        APP_HOME: $APP_HOME
+        APP_PORT: $APP_PORT
     environment:
       RAILS_DB_ADAPTER: postgresql
       RAILS_DB_HOST: postgresdb
@@ -29,14 +32,10 @@ services:
       RAILS_DB_PASSWORD: password
       RAILS_DB_ENCODING: utf8
       RAILS_ENV: development
-
     ports:
-      - "3000:3000"
-      #- "1232:1232"
-      #- "26161:26161"
-      # - "25:25"
+      - $APP_PORT:$APP_PORT
     depends_on:
       - postgresdb
       - mysqldb
     volumes:
-      - ./app:/var/lib/app
+      - ./app:$APP_HOME

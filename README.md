@@ -11,32 +11,22 @@ $ git clone https://github.com/ishikawa999/rails_app_development_docker.git
 $ cd /your/path/rails_app_development_docker
 ```
 
-* app以下に動かしたいRailsアプリケーションのコードを入れる(app/app, app/configになるように、直下に)
+* .envを書き換える。CLONE_REPOSITORYなど
+
+* docker-build.shを実行
 
 ```bash
-$ git clone https://github.com/redmine/redmine.git app
-```
-
-* .vscodeディレクトリをapp以下にコピー
-```bash
-$ mkdir app/.vscode
-$ cp .vscode/launch.json app/.vscode/launch.json
+$ sh docker-build.sh
 ```
 
 * VScodeでRemote Containers: Open Folder in Container...を選択
 * 起動
 ```bash
-$ rdebug-ide --host 0.0.0.0 --port 1233 --dispatcher-port 26162 -- bin/rails server -b 0.0.0.0
+$ rails s -p .envで指定したport -b 0.0.0.0
 ```
-* redmine-docker-vscodeを開く
-* 開いたらデバッグモードでListen for rdebug-ideを選択
-* 少し待つとlocalhost:3000でアクセスできるようになる。
-* あとはVScode上からbreak pointなどを埋めてデバッグできる
+* 少し待つとlocalhost:[,envで指定したport]でアクセスできるようになる。
 
-* デバッグモード以外で起動
-```
-$ rails s -b 0.0.0.0
-```
+※うまく動かなかったらvscode側でrebuildしてみる
 
 ## docker-compose.ymlを書き換えずにpostgresqlからmysqlに切り替え
 
@@ -49,5 +39,5 @@ $ bundle update
 $ bundle install
 $ bundle exec rake db:create
 $ bundle exec rake db:migrate
-$ rdebug-ide --host 0.0.0.0 --port 1233 --dispatcher-port 26162 -- bin/rails server -b 0.0.0.0
+$ rails s -p .envで指定したport -b 0.0.0.0
 ```

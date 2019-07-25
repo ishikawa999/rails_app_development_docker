@@ -1,6 +1,7 @@
 FROM ruby:2.6-slim-stretch
+ARG APP_HOME
+ARG APP_PORT
 ENV LANG C.UTF-8
-ENV APP_HOME /var/lib/app
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN set -eux; \
@@ -30,17 +31,15 @@ ENV DEBIAN_FRONTEND dialog
 
 WORKDIR $APP_HOME
 ADD ./app/. $APP_HOME
+COPY ./scripts/. /
 
-COPY ./start.sh ./entrypoint.sh ./setup.sh ./custom_shell.sh /
+RUN for file_name in "/start.sh /entrypoint.sh /setup.sh /custom_shell.sh"; do \
+      chmod +x $file_name; \
+    done && \
+    bundle update && \
+   /setup.sh
 
-RUN chmod +x /start.sh && \
-  chmod +x /entrypoint.sh && \
-  chmod +x /setup.sh && \
-  chmod +x /custom_shell.sh && \
-  bundle update && \
-  /setup.sh
-
-EXPOSE 3000
+EXPOSE $APP_PORT
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/start.sh"]

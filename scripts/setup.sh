@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $APP_HOME
+
 { \
   echo "production:"; \
   echo "  adapter: postgresql"; \
@@ -22,7 +24,7 @@
   echo "  password: <%= ENV['RAILS_DB_PASSWORD'] %>"; \
   echo "  host: <%= ENV['RAILS_DB_HOST'] %>"; \
   echo "  encoding: <%= ENV['RAILS_DB_ENCODING'] %>"; \
-} | tee /var/lib/app/config/database.yml;
+} | tee config/database.yml;
 
 # git-prompt & git-completion
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O /var/lib/.git-completion.bash
@@ -46,14 +48,8 @@ chmod a+x /var/lib/.git-completion.bash
 } | tee /root/.bashrc
 
 # git 文字化け対処
-cd /var/lib/app
 git config --global core.pager "LESSCHARSET=utf-8 less"
 
 echo 'ja_JP.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 update-locale
-
-# vscode debug gem install
-
- gem install ruby-debug-ide
- gem install debase

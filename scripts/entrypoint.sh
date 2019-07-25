@@ -1,5 +1,9 @@
 #!/bin/bash
+echo 'APP_HOME'
+echo $APP_HOME
+echo $APP_NAME
 
+cd $APP_HOME
 { \
     echo "production:"; \
     echo "  adapter: <%= ENV['RAILS_DB_ADAPTER'] %>"; \
@@ -22,7 +26,7 @@
     echo "  password: <%= ENV['RAILS_DB_PASSWORD'] %>"; \
     echo "  host: <%= ENV['RAILS_DB_HOST'] %>"; \
     echo "  encoding: <%= ENV['RAILS_DB_ENCODING'] %>"; \
-} | tee /var/lib/app/config/database.yml
+} | tee config/database.yml
 
 bundle update
 bundle install
