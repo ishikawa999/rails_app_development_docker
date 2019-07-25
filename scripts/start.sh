@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd $APP_HOME
 rake db:create
 rake db:migrate
 rake log:clear

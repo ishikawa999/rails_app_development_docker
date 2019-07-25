@@ -1,9 +1,4 @@
 #!/bin/bash
-echo 'APP_HOME'
-echo $APP_HOME
-echo $APP_NAME
-
-cd $APP_HOME
 { \
     echo "production:"; \
     echo "  adapter: <%= ENV['RAILS_DB_ADAPTER'] %>"; \

@@ -1,4 +1,5 @@
-FROM ruby:2.6-slim-stretch
+ARG RUBY_VERSION
+FROM ruby:$RUBY_VERSION-slim-stretch
 ARG APP_HOME
 ARG APP_PORT
 ENV LANG C.UTF-8

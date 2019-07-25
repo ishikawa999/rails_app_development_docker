@@ -24,6 +24,7 @@ services:
       args:
         APP_HOME: $APP_HOME
         APP_PORT: $APP_PORT
+        RUBY_VERSION: $RUBY_VERSION
     environment:
       RAILS_DB_ADAPTER: postgresql
       RAILS_DB_HOST: postgresdb
