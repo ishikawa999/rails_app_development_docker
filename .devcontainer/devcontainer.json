@@ -1,8 +1,8 @@
 {
-    "name": "Redmine3.4",
+    "name": "RailsApp Docker",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "app",
-    "workspaceFolder": "/var/lib/redmine",
+    "workspaceFolder": "/var/lib/app",
     "shutdownAction": "stopCompose",
     "appPort": 3000,
     "extensions": [
