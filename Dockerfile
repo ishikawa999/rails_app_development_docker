@@ -37,7 +37,7 @@ COPY ./scripts/. /
 RUN for file_name in "/start.sh /entrypoint.sh /setup.sh /custom_shell.sh"; do \
       chmod +x $file_name; \
     done && \
-    bundle update && \
+    bundle install && \
    /setup.sh
 
 EXPOSE $APP_PORT
