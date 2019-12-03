@@ -1,14 +1,13 @@
 {
-    "name": "RailsApp Docker",
+    "name": "AppName",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "app",
     "workspaceFolder": "/var/lib/app",
     "shutdownAction": "stopCompose",
-    "appPort": 3000,
+    "appPort": 8000,
     "extensions": [
         "rebornix.ruby",
         "eamodio.gitlens",
-        "wakatime.vscode-wakatime",
         "kaiwood.endwise"
     ],
     "settings": {

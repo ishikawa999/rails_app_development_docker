@@ -29,12 +29,13 @@ services:
       RAILS_DB_ADAPTER: postgresql
       RAILS_DB_HOST: postgresdb
       RAILS_DB: app
-      RAILS_DB_USERNAME: rails_app_user
+      RAILS_DB_USERNAME: db_user
       RAILS_DB_PASSWORD: password
       RAILS_DB_ENCODING: utf8
       RAILS_ENV: development
+    env_file: .env
     ports:
-      - $APP_PORT:$APP_PORT
+      - $APP_PORT:3000
     depends_on:
       - postgresdb
       - mysqldb

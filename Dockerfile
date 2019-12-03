@@ -25,6 +25,7 @@ RUN set -eux; \
     default-libmysqlclient-dev \
     locales \
     locales-all \
+    libsqlite3-dev \
     ; \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*;
@@ -32,13 +33,14 @@ ENV DEBIAN_FRONTEND dialog
 
 WORKDIR $APP_HOME
 ADD ./app/. $APP_HOME
-COPY ./scripts/. /
 
+COPY ./scripts/. /
 RUN for file_name in "/start.sh /entrypoint.sh /setup.sh /custom_shell.sh"; do \
       chmod +x $file_name; \
-    done && \
-    bundle install && \
-   /setup.sh
+    done
+
+RUN bundle install
+RUN /setup.sh
 
 EXPOSE $APP_PORT
 
