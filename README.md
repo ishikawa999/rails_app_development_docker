@@ -27,6 +27,8 @@ $ ruby update_devcontainer_setting.rb
 $ docker-compose build
 ```
 
+* VScodeに拡張機能[Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)をインストール
+
 * VScodeで/your/path/app_nameを開いた状態でRemote Containers: Open Folder in Container...を選択
 * 起動したらターミナルで新しいタブを開き、
 ```bash
