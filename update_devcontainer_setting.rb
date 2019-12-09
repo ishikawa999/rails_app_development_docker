@@ -23,9 +23,9 @@ app_home = env_content.split.find{|c| c.include?('APP_HOME=')}.gsub('APP_HOME=',
 devcontainer_content.gsub!('/var/lib/app', app_home)
 
 app_port = env_content.split.find{|c| c.include?('APP_PORT=')}.gsub('APP_PORT=', '')
-devcontainer_content.gsub!('3000', app_port)
+devcontainer_content.gsub!('8000', app_port)
 
 app_name = env_content.split.find{|c| c.include?('APP_NAME=')}.gsub('APP_NAME=', '')
-devcontainer_content.gsub!('RailsApp Docker', app_name)
+devcontainer_content.gsub!('AppName', app_name)
 File.write('.devcontainer/devcontainer.json', devcontainer_content)
 puts '.devcontainer/devcontainer.jsonを変更しました'
