@@ -23,7 +23,6 @@
     echo "  encoding: <%= ENV['RAILS_DB_ENCODING'] %>"; \
 } | tee config/database.yml
 
-bundle update
 bundle install
 rake generate_secret_token
 rake db:create
