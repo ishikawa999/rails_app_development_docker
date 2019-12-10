@@ -7,7 +7,7 @@ services:
     restart: on-failure:5
     environment:
       POSTGRES_PASSWORD: password
-      POSTGRES_USER: rails_app_user
+      POSTGRES_USER: db_user
 
   # MySQL
   mysqldb:
@@ -16,7 +16,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_PASSWORD: password
-      MYSQL_USER: rails_app_user
+      MYSQL_USER: db_user
 
   app:
     build:
