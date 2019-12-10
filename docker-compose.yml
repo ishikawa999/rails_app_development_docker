@@ -4,7 +4,7 @@ services:
   # PostgreSQL
   postgresdb:
     image: postgres:9.5
-    restart: always
+    restart: on-failure:5
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: rails_app_user
@@ -12,7 +12,7 @@ services:
   # MySQL
   mysqldb:
     image: mysql:5.7
-    restart: always
+    restart: on-failure:5
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_PASSWORD: password
@@ -34,6 +34,7 @@ services:
       RAILS_DB_ENCODING: utf8
       RAILS_ENV: development
     env_file: .env
+    tty: true
     ports:
       - $APP_PORT:3000
     depends_on:
