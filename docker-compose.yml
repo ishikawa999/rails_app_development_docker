@@ -3,7 +3,7 @@ services:
 
   # PostgreSQL
   postgresdb:
-    image: postgres:9.5
+    image: postgres:11.5
     restart: on-failure:5
     environment:
       POSTGRES_PASSWORD: password
@@ -41,4 +41,5 @@ services:
       - postgresdb
       - mysqldb
     volumes:
-      - ./app:$APP_HOME
+      - ./app/.git:$APP_HOME/.git
+      - ./share:$APP_HOME/../share
