@@ -11,7 +11,7 @@ $ git clone https://github.com/ishikawa999/rails_app_development_docker.git app_
 $ cd /your/path/app_name
 ```
 
-* .envを書き換える。CLONE_REPOSITORYなど
+* .envを書き換える。
 
 * update_devcontainer_setting.rbを実行
 
