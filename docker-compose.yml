@@ -37,6 +37,7 @@ services:
     tty: true
     ports:
       - $APP_PORT:3000
+      - 3035:3035
     depends_on:
       - postgresdb
       - mysqldb

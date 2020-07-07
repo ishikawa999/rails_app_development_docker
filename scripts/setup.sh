@@ -53,3 +53,16 @@ git config --global core.pager "LESSCHARSET=utf-8 less"
 echo 'ja_JP.UTF-8 UTF-8' >> /etc/locale.gen
 locale-gen
 update-locale
+locale-gen ja_JP.UTF-8
+localedef -f UTF-8 -i ja_JP ja_JP
+
+# yarnパッケージ管理ツールインストール
+apt-get update && apt-get install -y gnupg curl apt-transport-https wget && \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && apt-get install -y yarn
+yarn upgrade
+
+# Node.jsをインストール
+curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+    apt-get install nodejs

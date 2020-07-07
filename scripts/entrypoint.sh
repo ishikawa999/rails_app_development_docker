@@ -24,6 +24,7 @@
 } | tee config/database.yml
 
 bundle install
+yarn install
 rake generate_secret_token
 rake db:create
 rake db:migrate

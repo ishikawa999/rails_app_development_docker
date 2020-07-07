@@ -1,4 +1,5 @@
 app/*
+share/*
 # custom_shell.sh
 
 # git update-index --skip-worktree app

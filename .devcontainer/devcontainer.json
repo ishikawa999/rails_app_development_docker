@@ -4,11 +4,14 @@
     "service": "app",
     "workspaceFolder": "/var/lib/app",
     "shutdownAction": "stopCompose",
-    "appPort": 8000,
+    "appPort": [8000, 3035],
     "extensions": [
         "rebornix.ruby",
         "eamodio.gitlens",
-        "kaiwood.endwise"
+        "kaiwood.endwise",
+        "wakatime.vscode-wakatime",
+        "shuworks.vscode-table-formatter",
+        "humao.rest-client"
     ],
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"

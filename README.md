@@ -51,3 +51,18 @@ $ bundle exec rake db:create
 $ bundle exec rake db:migrate
 $ rails s -b 0.0.0.0
 ```
+
+## コンテナとローカルでのコードの同期設定
+
+デフォルトでは `$APP_HOME/.git` と `$APP_HOME/../share` のみを同期するようにして、速度を上げている。  
+ローカルのコードは .gitのみが更新されるため各ファイルの更新は行われない。ただ、.gitは更新されているため  
+```bash
+$ git checkout .
+$ git clean -df
+```
+のようにすればコンテナ上と同じ状態にすることが出来る。  
+その分こまめにgit commitで .git に変更が適用されるようにする必要がある。  
+
+ファイルのやりとりは `$APP_HOME/../share` を介して行う。
+
+変えたい場合はdocker-compose.ymlのvolumesを書き換える。
