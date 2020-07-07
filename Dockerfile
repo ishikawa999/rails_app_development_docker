@@ -35,7 +35,7 @@ WORKDIR $APP_HOME
 ADD ./app/. $APP_HOME
 
 COPY ./scripts/. /
-COPY ./.vscode/. $APP_HOME
+COPY ./.vscode/. $APP_HOME/.vscode
 RUN for file_name in "/start.sh /entrypoint.sh /setup.sh /custom_shell.sh"; do \
       chmod +x $file_name; \
     done
