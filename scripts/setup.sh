@@ -65,4 +65,4 @@ yarn upgrade
 
 # Node.jsをインストール
 curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
-    apt-get install nodejs
+    apt-get install -y nodejs
