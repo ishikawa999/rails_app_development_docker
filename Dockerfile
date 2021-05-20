@@ -1,5 +1,6 @@
 ARG RUBY_VERSION
-FROM ruby:$RUBY_VERSION-slim-stretch
+FROM ruby:$RUBY_VERSION-slim-buster
+
 ARG APP_HOME
 ARG APP_PORT
 ENV LANG C.UTF-8
@@ -9,7 +10,7 @@ RUN set -eux; \
   apt-get update && \
   apt-get install -y --no-install-recommends \
     ca-certificates \
-    wget \
+    wget curl \
     \
     bzr \
     git \
@@ -26,6 +27,9 @@ RUN set -eux; \
     locales \
     locales-all \
     libsqlite3-dev \
+    postgresql postgresql-contrib \
+    apt-transport-https \
+    gnupg \
     ; \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*;
@@ -40,6 +44,7 @@ RUN for file_name in "/start.sh /entrypoint.sh /setup.sh /custom_shell.sh"; do \
       chmod +x $file_name; \
     done
 
+RUN bundle update
 RUN bundle install
 RUN /setup.sh
 

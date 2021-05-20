@@ -56,13 +56,21 @@ update-locale
 locale-gen ja_JP.UTF-8
 localedef -f UTF-8 -i ja_JP ja_JP
 
-# yarnパッケージ管理ツールインストール
-apt-get update && apt-get install -y gnupg curl apt-transport-https wget && \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt-get install -y yarn
-yarn upgrade
+# yarn
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg |\
+    apt-key add
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | \
+    tee /etc/apt/sources.list.d/yarn.list
+
+# git-secrets
+sh -c "echo 'deb https://gitsecret.jfrog.io/artifactory/git-secret-deb git-secret main' >> /etc/apt/sources.list"
+wget -qO - 'https://gitsecret.jfrog.io/artifactory/api/gpg/key/public' | apt-key add -
+
+
+apt-get update
+apt-get install -y yarn git-secrets
+git secrets --register-aws --global
 
 # Node.jsをインストール
 curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
-    apt-get install nodejs
+    apt-get install -y nodejs
