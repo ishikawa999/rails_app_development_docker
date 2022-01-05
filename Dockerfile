@@ -1,5 +1,5 @@
 ARG RUBY_VERSION
-FROM ruby:$RUBY_VERSION-slim-buster
+FROM ruby:$RUBY_VERSION
 
 ARG APP_HOME
 ARG APP_PORT
@@ -12,13 +12,8 @@ RUN set -eux; \
     ca-certificates \
     wget curl \
     \
-    bzr \
     git \
-    mercurial \
     openssh-client \
-    subversion \
-    gsfonts \
-    imagemagick libmagick++-dev \
     build-essential \
     libpq-dev \
     vim \
