@@ -10,13 +10,13 @@ services:
       POSTGRES_USER: db_user
 
   # MySQL
-  mysqldb:
-    image: mysql:5.7
-    restart: on-failure:5
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_PASSWORD: password
-      MYSQL_USER: db_user
+  # mysqldb:
+  #   image: mysql:5.7
+  #   restart: on-failure:5
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_USER: db_user
 
   app:
     build:
@@ -40,7 +40,7 @@ services:
       - 3035:3035
     depends_on:
       - postgresdb
-      - mysqldb
+  #    - mysqldb
     volumes:
       - ./app/.git:$APP_HOME/.git
       - ./share:$APP_HOME/../share
