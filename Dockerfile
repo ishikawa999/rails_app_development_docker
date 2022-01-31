@@ -27,6 +27,7 @@ RUN set -eux; \
     postgresql postgresql-contrib \
     apt-transport-https \
     gnupg \
+    python2 \
     ; \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*;
