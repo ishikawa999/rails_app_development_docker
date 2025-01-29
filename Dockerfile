@@ -1,5 +1,5 @@
-ARG RUBY_VERSION
-FROM ruby:$RUBY_VERSION-slim-buster
+ARG IMAGE
+FROM $IMAGE
 
 ARG APP_HOME
 ARG APP_PORT
@@ -27,7 +27,6 @@ RUN set -eux; \
     postgresql postgresql-contrib \
     apt-transport-https \
     gnupg \
-    python2 \
     ; \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*;
